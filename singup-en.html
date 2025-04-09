@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Sign Up</title>
+    <link rel="stylesheet" href="styllogin.css">
+</head>
+<body>
+    <header>
+        <h1>Webdroonix - Sign Up</h1>
+    </header>
+    <main>
+        <form id="signup-form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = "E-mail must end with @gmail.com.";
+                return;
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorMessage.textContent = "Password must contain at least one digit and one special character.";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords must match.";
+                return;
+            }
+
+            // Redirect after successful registration
+            window.location.href = "index-zalog-en.html";
+        });
+    </script>
+</body>
+</html>

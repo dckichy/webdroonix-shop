@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Kauf</title>
+    <link rel="stylesheet" href="stylzakup.css">
+</head>
+<body>
+    <header>
+        <h1>Webdroonix - Kauf</h1>
+    </header>
+    <nav>
+        <button class="lang-btn" onclick="location.href='zakup.html'">Polski</button>
+        <button class="lang-btn" onclick="location.href='zakup-en.html'">English</button>
+        <button class="lang-btn" onclick="location.href='sklep-de.html'">Zurück zum Geschäft</button>
+    </nav>
+    <main>
+        <section>
+            <h2>Zahlungsmethode auswählen</h2>
+            <button id="blik-btn">Blik</button>
+            <div id="blik-section" style="display: none;">
+                <h3>Blik-Code eingeben</h3>
+                <div id="blik-display">______</div>
+                <div id="keyboard">
+                    <button class="key">1</button>
+                    <button class="key">2</button>
+                    <button class="key">3</button>
+                    <button class="key">4</button>
+                    <button class="key">5</button>
+                    <button class="key">6</button>
+                    <button class="key">7</button>
+                    <button class="key">8</button>
+                    <button class="key">9</button>
+                    <button class="key">0</button>
+                    <button id="enter-btn">Enter</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. Alle Rechte vorbehalten.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const blikBtn = document.getElementById("blik-btn");
+            const blikSection = document.getElementById("blik-section");
+            const blikDisplay = document.getElementById("blik-display");
+            const keys = document.querySelectorAll(".key");
+            const enterBtn = document.getElementById("enter-btn");
+
+            let blikCode = "";
+
+            blikBtn.addEventListener("click", () => {
+                blikSection.style.display = "block";
+            });
+
+            keys.forEach(key => {
+                key.addEventListener("click", () => {
+                    if (blikCode.length < 6) {
+                        blikCode += key.textContent;
+                        updateDisplay();
+                    }
+                });
+            });
+
+            enterBtn.addEventListener("click", () => {
+                if (blikCode.length === 6) {
+                    alert(`Blik-Code bestätigt: ${blikCode}`);
+                    blikCode = "";
+                    updateDisplay();
+                } else {
+                    alert("Der Blik-Code muss 6 Ziffern haben!");
+                }
+            });
+
+            function updateDisplay() {
+                blikDisplay.textContent = blikCode.padEnd(6, "_");
+            }
+        });
+    </script>
+</body>
+</html>

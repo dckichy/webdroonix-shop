@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Profile</title>
+    <link rel="stylesheet" href="stylprof.css">
+</head>
+<body>
+    <header>
+        <h1>Your Profile</h1>
+    </header>
+    <main>
+        <div class="profile-container">
+            <p><strong>E-mail:</strong> <span id="email">**********</span></p>
+            <p><strong>Password:</strong> <span id="password">**********</span></p>
+            <button id="show-info-btn">Show Data</button>
+            <button onclick="location.href='index-logged-in.html'">Back to Home</button>
+            <button class="auth-btn" onclick="location.href='index.html'">Log Out</button>       
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. All rights reserved.</p>
+    </footer>
+    <script>
+        // Retrieve user data from localStorage
+        const userEmail = localStorage.getItem("userEmail");
+        const userPassword = localStorage.getItem("userPassword");
+
+        document.getElementById("show-info-btn").addEventListener("click", function() {
+            if (userEmail && userPassword) {
+                document.getElementById("email").textContent = userEmail;
+                document.getElementById("password").textContent = userPassword;
+                console.log("Retrieved user data:", userEmail, userPassword);
+            } else {
+                alert("No saved user data. Please log in again.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Ogólne ustawienia */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #003366, #0066cc);
+    color: white;
+    text-align: center;
+}
+
+header {
+    background-color: #001122;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px); /* Wysokość strony minus header i footer */
+}
+
+form {
+    background-color: #004080;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #d9d9d9;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #00ccff;
+}
+
+form button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #004080;
+    transform: scale(1.05);
+}
+
+#error-message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ff3333;
+}
+
+/* Stopka */
+footer {
+    background-color: #001122;
+    text-align: center;
+    padding: 20px 0;
+    color: #d9d9d9;
+    font-size: 0.9rem;
+}

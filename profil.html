@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Profil</title>
+    <link rel="stylesheet" href="stylprof.css">
+</head>
+<body>
+    <header>
+        <h1>Twój Profil</h1>
+    </header>
+    <main>
+        <div class="profile-container">
+            <p><strong>E-mail:</strong> <span id="email">**********</span></p>
+            <p><strong>Hasło:</strong> <span id="password">**********</span></p>
+            <button id="show-info-btn">Pokaż dane</button>
+            <button onclick="location.href='index-zalogowano.html'">Powrót do strony głównej</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+    <script>
+        // Pobierz dane użytkownika z localStorage
+        const userEmail = localStorage.getItem("userEmail");
+        const userPassword = localStorage.getItem("userPassword");
+
+        document.getElementById("show-info-btn").addEventListener("click", function() {
+            if (userEmail && userPassword) {
+                document.getElementById("email").textContent = userEmail;
+                document.getElementById("password").textContent = userPassword;
+                console.log("Pobrane dane użytkownika:", userEmail, userPassword);
+            } else {
+                alert("Brak zapisanych danych użytkownika. Zaloguj się ponownie.");
+            }
+        });
+    </script>
+</body>
+</html>

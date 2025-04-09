@@ -1,0 +1,156 @@
+/* Ogólne ustawienia */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #002244, #0055aa);
+    color: white;
+    text-align: center;
+}
+
+header {
+    background-color: #001122;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #00ccff;
+}
+
+/* Styl dla przycisku Blik */
+#blik-btn {
+    background-color: #000; /* Czarny kolor tła */
+    color: white; /* Biały tekst */
+    font-size: 1.5rem; /* Większy rozmiar tekstu */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border: none;
+    padding: 15px 30px; /* Większe wymiary przycisku */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#blik-btn::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 10px;
+    height: 10px;
+    background-color: #ff3366; /* Czerwony punkt */
+    border-radius: 50%;
+}
+
+#blik-btn:hover {
+    background-color: #333; /* Ciemniejszy czarny przy najechaniu */
+    transform: scale(1.05); /* Powiększenie przycisku */
+}
+
+/* Styl dla sekcji Blik */
+#blik-display {
+    font-size: 2rem;
+    margin: 20px auto;
+    padding: 10px;
+    width: 180px;
+    background-color: #001122;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    letter-spacing: 5px;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    max-width: 250px;
+    margin: 20px auto;
+}
+
+.key {
+    background-color: #0055aa;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.key:hover {
+    background-color: #003377;
+    transform: scale(1.1);
+}
+
+#enter-btn {
+    grid-column: span 3;
+    background-color: #00cc00;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#enter-btn:hover {
+    background-color: #009900;
+}
+
+/* Stopka */
+footer {
+    background-color: #001122;
+    text-align: center;
+    padding: 20px 0;
+    color: #d9d9d9;
+    font-size: 0.9rem;
+}
+/* Poprawiony styl dla przycisków zmiany języków i powrotu do sklepu */
+.lang-btn {
+    background-color: #0055aa; /* Niebieskie tło */
+    color: white; /* Biały tekst */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Przyciski mają automatyczną szerokość */
+    display: inline-block; /* Przyciski nie zajmują całej szerokości */
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.lang-btn:hover {
+    background-color: #003377; /* Ciemniejszy niebieski po najechaniu */
+    transform: scale(1.05); /* Powiększenie przycisku */
+}
+
+/* Poprawiony styl dla sekcji przycisków */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Przyciski będą zawijać się w razie potrzeby */
+}

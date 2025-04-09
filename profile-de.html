@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdroonix - Profil</title>
+    <link rel="stylesheet" href="stylprof.css">
+</head>
+<body>
+    <header>
+        <h1>Ihr Profil</h1>
+    </header>
+    <main>
+        <div class="profile-container">
+            <p><strong>E-Mail:</strong> <span id="email">**********</span></p>
+            <p><strong>Passwort:</strong> <span id="password">**********</span></p>
+            <button id="show-info-btn">Daten anzeigen</button>
+            <button onclick="location.href='index-angemeldet.html'">Zurück zur Startseite</button>
+            <button class="auth-btn" onclick="location.href='index.html'">Abmelden</button>       
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Webdroonix. Alle Rechte vorbehalten.</p>
+    </footer>
+    <script>
+        // Benutzerdaten aus localStorage abrufen
+        const userEmail = localStorage.getItem("userEmail");
+        const userPassword = localStorage.getItem("userPassword");
+
+        document.getElementById("show-info-btn").addEventListener("click", function() {
+            if (userEmail && userPassword) {
+                document.getElementById("email").textContent = userEmail;
+                document.getElementById("password").textContent = userPassword;
+                console.log("Benutzerdaten abgerufen:", userEmail, userPassword);
+            } else {
+                alert("Keine gespeicherten Benutzerdaten. Bitte melden Sie sich erneut an.");
+            }
+        });
+    </script>
+</body>
+</html>
